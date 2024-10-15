@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 20:25:34 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/14 21:48:41 by joacoelh         ###   ########.fr       */
+/*   Created: 2024/10/14 21:40:05 by joacoelh          #+#    #+#             */
+/*   Updated: 2024/10/14 21:49:19 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	char	*dest_cpy;
+	char	*src_cpy;
+	size_t	i;
 
-int		ft_isalpha(char c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-
-#endif
+	if (!dest && !src)
+		return (NULL);
+	dest_cpy = (char *)dest;
+	src_cpy = (char *)src;
+	i = 0;
+	while (i < n)
+	{
+		dest_cpy[i] = src_cpy[i];
+		i++;
+	}
+	return (dest);
+}
