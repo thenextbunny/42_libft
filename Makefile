@@ -6,7 +6,7 @@
 #    By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 20:21:39 by joacoelh          #+#    #+#              #
-#    Updated: 2024/10/14 21:48:34 by joacoelh         ###   ########.fr        #
+#    Updated: 2024/10/16 22:31:11 by joacoelh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ AR			= ar
 ARFLAGS		= -rcs
 SRCS		= ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 				ft_isascii.c ft_isprint.c ft_strlen.c \
-				ft_memset.c ft_bzero.c ft_memcpy.c
+				ft_memset.c ft_bzero.c ft_memcpy.c \
+				\
+				ft_toupper.c ft_tolower.c \
+				\
+				ft_atoi.c
 OBJS		= $(SRCS:%.c=%.o)
 RM			= rm -f
 
