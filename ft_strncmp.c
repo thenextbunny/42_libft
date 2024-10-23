@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 21:21:41 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/22 20:28:49 by joacoelh         ###   ########.fr       */
+/*   Created: 2024/10/22 22:09:31 by joacoelh          #+#    #+#             */
+/*   Updated: 2024/10/22 22:34:41 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	result;
-	int	sign;
+	size_t	i;
 
-	sign = 1;
-	result = 0;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	i = 0;
+	while (i < n && (s1[i] || s2[i]))
 	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+		{
+			if ((unsigned char)s1[i] < (unsigned char)s2[i])
+				return (-1);
+			return (1);
+		}
+		i++;
 	}
-	while (ft_isdigit(*nptr))
-	{
-		result = result * 10 + (*nptr - '0');
-		nptr++;
-	}
-	return (result * sign);
+	return (0);
 }

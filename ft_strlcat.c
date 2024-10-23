@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 21:21:41 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/22 20:28:49 by joacoelh         ###   ########.fr       */
+/*   Created: 2024/10/22 21:10:26 by joacoelh          #+#    #+#             */
+/*   Updated: 2024/10/22 21:25:22 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	result;
-	int	sign;
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
 
-	sign = 1;
-	result = 0;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (size + src_len);
+	i = 0;
+	while (src[i] && (dst_len + i) < (size - 1))
 	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
+		dst[dst_len + i] = src[i];
+		i++;
 	}
-	while (ft_isdigit(*nptr))
-	{
-		result = result * 10 + (*nptr - '0');
-		nptr++;
-	}
-	return (result * sign);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
