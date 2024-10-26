@@ -6,7 +6,7 @@
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 21:40:05 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/14 21:49:19 by joacoelh         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:48:07 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char	*src_cpy;
 	size_t	i;
 
-	if (!dest && !src)
+	if (dest == NULL && src == NULL)
 		return (NULL);
 	dest_cpy = (char *)dest;
 	src_cpy = (char *)src;

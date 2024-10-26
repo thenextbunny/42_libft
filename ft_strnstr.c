@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 22:09:31 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/25 19:55:41 by joacoelh         ###   ########.fr       */
+/*   Created: 2024/10/25 20:12:51 by joacoelh          #+#    #+#             */
+/*   Updated: 2024/10/25 20:57:08 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	i;
+	size_t	little_len;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	little_len = ft_strlen(little);
+	if (!*little)
+		return ((char *)big);
+	while (*big && len >= little_len)
 	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-		{
-			if ((unsigned char)s1[i] < (unsigned char)s2[i])
-				return (-1);
-			return (1);
-		}
-		i++;
+		if (!ft_memcmp(big, little, little_len))
+			return ((char *)big);
+		big++;
+		len--;
 	}
-	return (0);
+	return (NULL);
 }
