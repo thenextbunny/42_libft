@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 19:57:01 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/29 20:23:44 by joacoelh         ###   ########.fr       */
+/*   Created: 2024/10/29 21:24:03 by joacoelh          #+#    #+#             */
+/*   Updated: 2024/10/29 21:38:20 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
-	size_t				i;
+	long	number;
 
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
-	i = 0;
-	while (i < n)
+	number = n;
+	if (number < 0)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		number *= -1;
 	}
-	return (0);
+	if (number >= 10)
+	{
+		ft_putnbr_fd((number / 10), fd);
+		number = number % 10;
+	}
+	if (number < 10)
+		ft_putchar_fd((number + '0'), fd);
 }
