@@ -6,13 +6,13 @@
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 20:55:20 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/29 21:23:26 by joacoelh         ###   ########.fr       */
+/*   Updated: 2024/11/06 20:40:51 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_set(char const *set, char c)
+static	int	is_set(char const *set, char c)
 {
 	while (*set)
 	{

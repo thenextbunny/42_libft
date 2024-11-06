@@ -6,25 +6,9 @@
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:44:06 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/22 22:00:20 by joacoelh         ###   ########.fr       */
+/*   Updated: 2024/11/06 20:39:56 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* #include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
-}
- */
 
 #include "libft.h"
 
