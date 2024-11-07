@@ -6,7 +6,7 @@
 /*   By: joacoelh <joacoelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 21:04:58 by joacoelh          #+#    #+#             */
-/*   Updated: 2024/10/14 21:29:15 by joacoelh         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:14:56 by joacoelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char			*memory;
+	char			*mem;
 	unsigned char	ch;
 	size_t			i;
 
 	ch = (unsigned char)c;
 	i = 0;
-	memory = (char *)s;
+	mem = (char *)s;
 	while (i < n)
 	{
-		memory[i] = ch;
+		mem[i] = ch;
 		i++;
 	}
 	return (s);
